@@ -1,0 +1,112 @@
+MetaDB Things to Keep in Mind for Rails version development
+
+General
+===================
+-Planning, design, and architecture decisions up front. Documents to go on Pivotal or GitHub(as Wikis)
+-Testing.
+-Documentation.
+-Commenting.
+
+User Side
+===================
+1.      Must be able to choose server location and upload master images from the UI.
+
+2.      Add file renaming of master files with unique 000n sequence (1 and 2 will require us to rethink read-only mounting of masters).
+
+3.      Make total items per collections changeable in metadb.conf (currently 9999, new default should be 99999 with option to change).
+
+4.       “Project Notes” field must be large and editable after project creation.
+
+5.      Abstract Admin/Desc tab concept into whatever user wants to call specific “views” (up to certain max number).
+
+6.      Get rid of flash/reload upon field drag/drop on Project Settings tab.
+
+7.      Put “search date” and “display date” regex checking pattern in metadb.conf (would be even better to abstract this more, so all regex fields are defined in metadb.conf, then during project setup, admin can map individual fields to specific regex checks including but not limited to dates).
+
+8.      Allow creation/selection of metadata schemas from UI (originally per-project, but I can think of times when we would want multiple metadata schemas for one project, so ideally, we'd be able to map each MD tab (see #5) to its own schema.  So desc would use dublin core, tech would use our default technical schema (likely PREMIS, see #18), and then the admin would be able to create a new geospatial tab and link it to a specialized schema for mapping coordinates.
+
+9.      Specify if controlled vocab is for a specific project, or shared between projects.  If for an individual project, naming scheme should be project-name.element.qualifier, if shared, naming scheme should be shared-project-name.element.qualifier.
+
+10.     Use above feature to restrict ability to edit vocabs to those with access to given project (instead of current hack).
+
+11.     Specify public/private derivatives for each project in the UI (should be easy with PHP/htaccess).
+
+12.     Make sure zoom/download derivatives work even if MetaDB is not the root webapp.
+
+13.     Allow logo image to be used for branding derivatives.
+
+14.     Provide start/stop/cancel control for image parser.
+
+15.     Provide parse all option.
+
+16.     Start table view with thumbnail column.
+
+17.     Better column sort filtering in table view (I can show you an example of something else that works well).
+
+18.     Use technical metadata libraries and standards such as JOHV2 and PREMIS.
+
+19.     Add item viewer support for non-image formats, such as PDF, video, etc (JOHV2 and PREMIS should help with this).
+
+20.     Add optional CV checking to table view (general users should be forced to use UI that checks controlled terms, but "power users" should be able to edit table without checking).
+
+21.     Include nightly MD5 check of all master images, with failure alerts.
+
+22.     Add feature to check CV fields against allowed CV terms, to see if there are any that do not match.
+
+23.     Add printer-friendly button to project settings page.
+
+24.     Add better feedback, such as a “working” icon when running table view query, searching collections, importing, or exporting metadata, etc.
+
+25.     Add pluggable export scripting so make it possible to transform output (if we added the ability to spit out basic XML, we'd then be able to write XSLT scripts for complex transformations).
+
+26.     Would be helpful if dropdown menus could start off blank before a value has been selected.
+
+Development Side
+===================
+
+General
+-------------------
+
+-Need way to store DB structure. Migration file?
+
+-ID for all tables (provided by default via RoR)
+-Use Bit Arrays for simple t/f control
+
+Major UI/Backend Design Improvements
+-------------------
+
+-Easier Configuration/Installation (RoR should take care of most. 
+YAML config files + Capistrano or other deploy mechanism)
+
+-Need to figure out where to store master images.
+
+-Custom Metadata Standards (More than Dublin)
+-Better derivatives storage and access mechanism (Storage location and linking of derivatives)
+
+-Revamped Parsing/Import system
+	-Can add master file one at a time
+	-Data can be imported before parsing items
+	-Data can also be imported after parsing items
+	-If data/#records doesn't match, report.
+	-Functional "new files" parsing, allow parsing of new files also via specifying item numbers.
+	-Parallel (detect project size, spawn new threads to take care of each distinct part)
+	-optimized as much as possible
+	-Recovery/error reporting
+	-Direct upload
+	
+-Better report generation
+-Better logging (general/errors both) <--Rails has a logger mechanism
+
+-Better user feedback mechanism. (alerts/emails etc)
+
+-Better concurrency (parsing/editing)
+
+-Use RMagick instead of direct ImageMagick calls
+
+-Faster search.
+
+-Banding/Branding-variables.
+
+-if possible, better cross-browser compatibility.
+
+-Better security (eg controlling access to derivatives)
