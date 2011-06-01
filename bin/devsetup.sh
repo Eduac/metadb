@@ -1,9 +1,7 @@
 #!/bin/bash
 
-RVM_FUNCTION='[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function'
 RUBY_VERSION="1.9.2"
 SETUP_PASSENGER=0
-RVM_LIB_PATH=$rvm_path/usr
 
 initial_setup() {
 	sudo apt-get -y install git-all curl wget build-essential zlib1g zlib1g-dev libxml2 libxml2-dev libxslt-dev libopenssl-ruby libcurl4-openssl-dev libssl-dev
