@@ -1,0 +1,167 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Image Settings</title>
+</head>
+<body>
+
+<div align="center">
+
+<br />
+<br />
+	<form id="image-derivative-settings" method="post">
+		<fieldset style="width: 90%;">
+		<legend><b>Derivative Settings</b></legend>
+		
+		<table id="derivative-fields" border="0">
+			<thead>
+				<tr>
+					<th></th>
+					<th>derivative</th>
+					<th>width x height</th>
+					<th>brand</th>
+					<th>foreground</th>
+					<th>background</th>
+					<th>text preview</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="thumbnail-row" height="36">
+					<td></td>
+					<td align="left">Thumbnail JPGs</td>
+					<td align="center">
+						<input class="ui-widget-content" size='3' type="text" disabled> x <input class="ui-widget-content" size='3' type="text" disabled>
+					</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr id="zoom-row" height="36">
+					<td></td>
+					<td align="left">Zoom JPGs</td>
+					<td align="center">
+						<input class="ui-widget-content" size='3' type="text" name='zoom-width'> x <input class="ui-widget-content" size='3' type="text" name='zoom-height'>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+				<tr id="custom-row">
+					<td align="center"><input class="ui-widget-content" type="checkbox" name='derivative-custom'></td>
+					<td align="left">Download JPGs</td>
+					<td align="center">
+						<input class="ui-widget-content number" size='3' type="text" name='custom-width'> x <input class="ui-widget-content number" size='3' type="text" name='custom-height'>
+					</td>
+					<td align="center">
+						<input id="custom-brand" class="ui-widget-content" type="radio" name="custom-brand-radio" value="none">None
+						<input id="custom-brand" class="ui-widget-content" type="radio" name="custom-brand-radio" value="under">Under
+						<input id="custom-brand" class="ui-widget-content" type="radio" name="custom-brand-radio" value="over">Over
+					</td>
+					<td align="center">
+						<div id='text-colorpicker-custom' class='color-picker'>
+							<div id='text-color-custom' style="background-color: #000000"></div>
+						</div>
+					</td>
+					<td align="center">
+						<div id='background-colorpicker-custom' class='color-picker'>
+							<div id='background-color-custom' style="background-color: #ffffff"></div>
+						</div>
+					</td>
+					<td id='preview-custom-brand' style='background-color:#ffffff; color:#000000'>Branded Text</td>
+				</tr>
+				<tr id="fullsize-row">
+					<td align="center"><input class="ui-widget-content" type="checkbox" name='derivative-fullsize'></td>
+					<td align="left">Fullsize JPGs</td>
+					<td align="center"></td>
+					<td align="center">
+						<input id="fullsize-brand" class="ui-widget-content" type="radio" name="fullsize-brand-radio" value="none">None
+						<input id="fullsize-brand" class="ui-widget-content" type="radio" name="fullsize-brand-radio" value="under">Under
+						<input id="fullsize-brand" class="ui-widget-content" type="radio" name="fullsize-brand-radio" value="over">Over
+					</td>
+					<td align="center">
+						<div id='text-colorpicker-fullsize' class='color-picker'>
+							<div id='text-color-fullsize' style="background-color: #000000"></div>
+						</div>
+					</td>
+					<td align="center">
+						<div id='background-colorpicker-fullsize' class='color-picker'>
+							<div id='background-color-fullsize' style="background-color: #ffffff"></div>
+						</div>
+					</td>
+					<td id='preview-fullsize-brand' style='background-color:#ffffff; color:#000000'>Branded Text</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!--<br />
+		Image Zoom Hostname 
+		<br/>
+		<input type="text" size='42' class='zoom-hostname' name='zoom-hostname'/>
+		<br/>-->
+		<br/>
+		<b>branding text</b><br/> 
+		<textarea rows="6" cols="70" name='branding-text'></textarea>
+		<br/><br/>
+		<table>
+			<tbody>
+				<tr>
+					<td align="center" style='padding-left:100px'>Save Settings</td>
+					<td align="center" style='padding-left:150px'>Process Now</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td align="center" style='padding-left:100px'>
+						<input class="ui-state-default" type="button" value="Save"/>
+					</td>
+					<td align="center" style='padding-left:150px'>
+						<input class="ui-state-default" type="button" value="Submit"/>
+					</td>
+					<td align="left">
+						<select name="process-options">
+							<option>All</option>
+							<option>These</option>
+						</select>
+						<input type="text" style="visibility: hidden" name="items">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style='display:none' id="parse-confirmation" title="Parse images with current settings?">
+			<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Derivative images will be permanently changed.  Do you want to proceed?</p>
+		</div>
+		</fieldset>
+	</form>
+</div>
+
+<!-- Color Picker -->
+<script type="text/javascript" src="js/jQuery/colorpicker/colorpicker.js"></script>
+<script type="text/javascript" src="js/jQuery/colorpicker/eye.js"></script>
+<script type="text/javascript" src="js/jQuery/colorpicker/layout.js"></script>
+<script type="text/javascript" src="js/jQuery/colorpicker/utils.js"></script>
+
+</body>
+</html>

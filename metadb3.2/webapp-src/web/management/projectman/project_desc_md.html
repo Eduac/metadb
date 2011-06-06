@@ -1,0 +1,74 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Project Descriptive Metadata</title>
+</head>
+
+<body>
+<div>
+
+<form id="desc-md-data" method="post">
+<fieldset style="width:90%;">
+<legend><b>Descriptive Metadata</b></legend>
+<p>Please import data before configuring administrative/descriptive fields</p>
+<br/>
+        <table id="custom-fields-dm" class='connectedMD' border="0" cellspacing="0">
+        <thead>
+          <tr>
+          	<th></th>
+			<th>metadata<br/>element</th>
+			<th>metadata<br/>qualifier</th>
+			<th style='width:10px'></th>
+			<th>search date</th>
+			<th>display date</th>
+			<th>larger field</th>
+			<th>controlled vocab</th>
+			<th style='width: 95px'>multiple<br/>terms</th>
+			<th>add terms</th>
+			<th>alpha sort</th>
+			<th>add/remove row</th>
+          </tr>
+          </thead>
+         
+        </table>
+		
+		<br/>
+        
+        <table border="0" id='add-desc-md'>
+        <tr>
+            <td>Number of fields</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><input type="submit" class='add-desc-md-button' value="Add Multiple fields" /></td>
+            <td><input type="text" name="add-fields-dm" class="ui-widget-content" id="add-fields-dm" size='2'/></td>
+          </tr>
+        </table>
+      <input type="submit" class='update-desc-md-button' value="Update Descriptive Metadata" />          
+	  </fieldset>
+        </form>
+	</div>
+
+
+</body>
+</html>

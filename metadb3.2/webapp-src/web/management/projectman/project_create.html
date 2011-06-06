@@ -1,0 +1,147 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<script type="text/javascript">
+		    $.validator.addMethod("projectname", function(value, element) {  
+		        return this.optional(element) || /[a-zA-Z0-9_-]{1,15}$/i.test(value);  
+		        }, "Use only alphanumeric characters, '-', or '_'.");
+		   
+		 
+			var check = $(ProjectMan.project_info_form).validate(
+				{
+					rules: {
+						projname: { projectname: true}
+					}
+				}	
+				);
+</script>
+-->
+<title>Project Information</title>
+
+
+
+</head>
+
+<body>
+
+
+
+<div align="center">
+	<form id="project-info-data" method="post" enctype="multipart/form-data" action="CreateProject.do" target="upload_project_target">
+		<fieldset style="width: 90%">
+			<legend><b>Project Information</b></legend>
+		
+		
+		
+			<table id="required-fields" border="0">
+				<tr>
+					<th scope="col">
+						<div align="right">setting</div>
+					</th>
+					<th scope="col">value</th>
+					<th scope="col">&nbsp;</th>
+				</tr>
+				<tr>
+					<td>
+						<div align="right">Project Name</div>
+					</td>
+					<td>
+						<div align="left"><input type="text" name="projname" class="ui-widget-content" id="projname" size="48" class="required" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="right">Project Notes</div>
+					</td>
+					<td>
+						<div align="left">
+							<input type="text" name="projnotes" class="ui-widget-content" id="projnotes" class="required" size="80" class="required" />
+						</div>
+					</td>
+				</tr>
+				<tr></tr>
+				<tr class='project-template' height='25px'>
+					<td>
+						<div align="right">Use project as template</div>
+					</td>
+					<td>
+						<div align="left">
+							<input type="checkbox" name="project-template-checkbox" />
+							<select name="project-template" style='display:none'></select>
+						</div>
+					</td>
+					<td>
+					
+					</td>
+				</tr>
+				<tr><br/></tr>
+				<!--
+				<tr class='optional-import'>
+					<td>
+						<div align="right">Choose delimiter</div>
+					</td>
+					<td>
+						<div align="left">
+							<select name="delimiter" id="delimiter" class='ui-widget-content'>
+								<option>comma</option>
+								<option>tab</option>
+							</select>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr class='optional-import'>
+					<td>
+						<div align="right">Disable text qualifier</div>
+					</td>
+					<td>
+						<div align="left">
+							<input type="checkbox" id="disable-qualifier-checkbox" name="disable-qualifier-checkbox" />
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr class='optional-import'>
+					<td>
+						<div align="right">Choose file to import</div>
+					</td>
+					<td>
+						<div align="left">
+							<input type="file" id="import-file" name="import-file" />
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				-->
+			</table>
+			<br/>
+			<iframe style="width: 400px; height: 100px; display: none;" class='ui-widget-content' onload="Helper.handleUploadResponse(this)" src="" name='upload_project_target' id="upload_project_target" /> 
+			<div id='hidden-notice' style='display: none'></div>
+			<input id="createproj" type="submit" value="Create" class="ui-state-default" /> <br />
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>
+

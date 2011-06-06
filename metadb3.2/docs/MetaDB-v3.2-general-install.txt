@@ -1,0 +1,46 @@
+GENERAL STEPS REQUIRED TO INSTALL METADB V3.2
+---------------------------------------------------------------
+
+1. Install the follwoing on a Linux server (other versions may    
+   work too, but cited versions are known to work): 
+
+	Apache HTTPD
+	Tomcat v5.5.27
+	Postgres v8.1.1
+	Ant v1.6.5
+	ImageMagick v6.2.8 
+   	Java 6 SDK
+ 
+2. Uncompress MetaDB source code, edit metadb.conf, and make 
+   sure the following Java libraries exist in metadb/webapp-
+   src/lib/(note that the included metadb/utils/download-
+   required-jars.sh script will download and extract all files 
+   into current directory): 
+
+	Apache Commons File Upload v1.2.1
+	Apache Commons IO v1.4 
+   	Apache Commons Lang v2.4
+	Apache Commons Sanselan v0.97
+	JAI Core v1.1.3
+	JAI Image I/O Tools v1.1
+	JavaCSV v2.1 
+
+3. Run "bash configure" to check for Java libraries and generate 
+   build files.
+
+4. Create initial database struture using metadb-install.sql 
+   script.
+
+5. Use the metadb/utils/create-delete-admin-users.sh script to 
+   create an admin user.
+
+6. Use the ant "deploy" target to build and deploy the metadb 
+   webapp.
+
+7. Use your web browser to login with the admin account created 
+   in step 4.
+
+8. Your first steps will likely be to create a project, 
+   configure fields, parse master images, and create user 
+   accounts.
+

@@ -1,0 +1,132 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Data Management Services</title>
+</head>
+<body>
+
+<!-- Import data service -->
+<div id="import-data" align="center">
+	<form id="import-data-form" method="post" enctype="multipart/form-data" action="ImportAdminDesc.do" target="upload_data_target">
+	<fieldset style="width: 90%;">
+	<legend><b>Import Settings</b></legend>
+	<tr><td colspan="2">Please parse images to create records before importing metadata.<br/><br/></td></tr>
+	<table>
+	<tr>
+		<td><div align="right">Dataset:</div></td>
+		<td><div align="left">administrative/descriptive metadata</div></td>
+	</tr>
+	<tr>
+		<td><div align="right">Replace <a href="http://www.w3schools.com/tags/ref_entities.asp" target="_new">HTML entity codes</a> with ordinary characters</div></td>
+		<td><div align="left"><input type='checkbox' name='replace-entity'/></div></td>
+	</tr>
+	<tr>
+		<td><div align="right">Choose delimiter</div></td>
+		<td><div align="left">
+			<select name="delimiter" id="delimiter" class='ui-widget-content'>
+				<option>comma</option>
+				<option>tab</option>
+			</select>
+		</div></td>
+	</tr>
+	<tr>
+		<td><div align="right">Choose file to import</div></td>
+		<td><div align="left"><input type="file" id="import-file" name="import-file"></div></td>
+	</tr>
+	</table>
+	<iframe style="width: 400px; height: 100px; display:none;" class='ui-widget-content' onload="Helper.handleUploadResponse(this)" src="" name="upload_data_target" id="upload_data_target" />
+	<div id='hidden-notice' style='display:none'></div>
+	<br/>
+	<input class="ui-state-default" type="button" value="Import" >
+	<br/>
+	<br/>
+	</fieldset>
+	</form>
+	<div style='display:none' id="import-data-confirmation" title="Import Data Confirmation">
+			<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Imported metadata will overwrite existing metadata.  Do you want to proceed?</p>
+	</div>
+</div>
+
+
+
+<!-- Export data service -->
+<div id="export-data" align="center">
+	<form id="export-data-form" method="post" action="ExportAdminDesc.do">
+	<fieldset style="width: 90%;">
+	<legend><b>Export Settings</b></legend>
+	<input type="hidden" name="projname">
+	<table>
+	<tr>
+		<td><div align="right">Dataset:</div></td>
+		<td><div align="left">administrative/descriptive metadata</div></td>		
+	</tr>
+	<tr>
+		<td><div align="right">Include technical data</div></td>
+		<td><div align="left"><input type='checkbox' name='technical'/></div></td>		
+	</tr>
+	<tr>
+		<td><div align="right">Replace <a href="http://www.w3schools.com/tags/ref_entities.asp" target="_new">problematic characters</a> with HTML entity codes</div></td>
+		<td><div align="left"><input type='checkbox' name='replace-entity'/></div></td>
+	</tr>
+	<!-- <tr>
+		<td><div align="right">Disable text qualifier</div></td>
+		<td><div align="left"><input type='checkbox' name='disable-qualifier'/></div></td>
+	</tr>-->
+	<tr>
+		<td><div align="right">Choose delimiter</div></td>
+		<td><div align="left">
+			<select name="delimiter" class='ui-widget-content'>
+				<option>comma</option>
+				<option>tab</option>
+			</select>
+		</div></td>
+	</tr>
+	<tr>
+		<td><div align="right">Export Images #</div></td>
+		<td><div align="left"><input id='export-images' type="text" name="export-images" class="text ui-widget-content"></div></td>
+	</tr>
+	</table>
+	<br/>
+	<input type="submit" value="Export" class="ui-state-default">
+	<br/>
+	<br/>
+	</fieldset>
+	</form>
+</div>
+
+
+<div id="view-all">
+<b>Select up to four fields for table edit display mode. Read-only fields will be shown in gray, read/write fields in black.</b><br><br>
+	<form id='all-attributes' method='post'></form>
+	<br />
+	<br />
+	
+	<div style='max-width:100%; overflow: auto'>
+		<table id='view-metadata'>
+		</table>
+	</div>
+	
+	</div>
+
+</body>
+</html>

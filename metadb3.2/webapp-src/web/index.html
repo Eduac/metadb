@@ -1,0 +1,125 @@
+<!--
+                MetaDB: A Distributed Metadata Collection Tool
+                Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+                This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MetaDB</title>
+
+<!-- Icon -->
+<link rel="shortcut icon" href="favicon.ico">
+
+
+
+<!--<link rel="stylesheet" href="css/lavalamp.css" type="text/css">-->
+<link rel="stylesheet" href="css/jquery.autocomplete.css" type="text/css">
+<link rel="stylesheet" href="css/jquery.dataTables.css" type="text/css">
+
+<!-- jQuery ThemeRoller -->
+<link rel="stylesheet" href="css/jquery-ui-1.8.custom.css" type="text/css">
+
+<!-- Color Picker -->
+<link rel="stylesheet" href="css/colorpicker.css" type="text/css">
+
+
+<link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+<body style="font-size:62.5%;">
+
+<div id="main" class="content">
+	<div style="cursor: pointer; float: right; margin-top:-30px; margin-right: 45px; width: 100px;">
+		<input type="button" value="Logout" id="logout-button" style="width: 150px;"/>
+	</div>		
+	<div id="context" class="main" style="width:100%">
+		<ul>
+			<li ><a href="intro.html" title='home-tab'><span>Home</span></a></li>
+			<li ><a href="management/userman/userman.html" title='userman-tab'><span>User Management</span></a></li>
+			<li ><a href="management/projectman/projectman.html" title='projman-tab'><span>Project Management</span></a></li>
+			<li ><a href="management/dataman/dataman.html" title='dataman-tab'><span>Data Management</span></a></li>
+			<li ><a href="metadata/item_metadata.html" title='item-tab'><span>Item Metadata</span></a></li>
+			<li ><a href="search.html" title='search-tab'><span>Search</span></a></li>
+		</ul>
+		<div id='home-tab'></div>
+		<div id='userman-tab'></div>
+		<div id='projman-tab'></div>
+		<div id='dataman-tab'></div>
+		<div id='item-tab'></div>
+		<div id='search-tab'></div>
+	</div>
+</div>
+            
+            
+ 
+
+<div class="current-project hidden-info" ></div>
+
+<div id="old-project" class='hidden-info' ></div>
+
+
+<div id="current-page" class='hidden-info' ></div>
+
+<div id="current-item" class='hidden-info' ></div>
+
+<div id='global-notification' class='ui-state-highlight hidden-info' ></div>
+
+
+<div id='item-edit-modal' class='hidden-info' ></div>
+
+<div id="logout-warning" title="Session Timeout" class='hidden-info'>
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>You have been idle for 15 minutes. Please re-login</p>
+</div>
+
+<div id="general-warning" class='hidden-info'></div>
+<div id="tag-line" class='static-info' style='font-family:Verdana,Arial,sans-serif; font-size:10px'><a href="http://code.google.com/p/metadb">MetaDB</a> v3.2 was created at <a href="http://www.lafayette.edu">Lafayette College</a> by <a href="http://digital.lafayette.edu/contact">Eric 
+Luhrs</a>, <a href="http://www.azndezign.com">Long Ho</a> &#39;10, and <a href="http://cs.lafayette.edu/~yamagucm">Haruki Yamaguchi</a> &#39;11.</div>
+
+</body>
+
+<!-- *********************************JavaScript Imports********************************* -->
+
+<!-- jQuery and jQueryUI -->
+<script type="text/javascript" src="js/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="js/jQuery/jquery-ui.min.js"></script>
+
+<!-- Form validation -->
+<script type="text/javascript" src="js/jQuery/jquery.validate.pack.js"></script>
+
+<!-- Tooltip -->
+<script type="text/javascript" src="js/jQuery/jquery.qtip-1.0.0-rc3.min.js"></script>
+
+<!-- Data Table -->
+<script type="text/javascript" src="js/jQuery/jquery.jeditable.mini.js"></script>
+
+<!-- Main metadb scripts -->
+<script type="text/javascript" src="js/JSON.js"></script>
+<script type="text/javascript" src="js/metadb.js"></script>
+
+<!-- DataTable Script -->
+<script type="text/javascript" src='js/jQuery/jquery.dataTables.min.js'></script>
+
+<!-- jQuery Cookie -->
+<script type="text/javascript" src='js/jQuery/jquery.cookie.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    Home.init();
+});
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Delete Project</title>
+</head>
+
+<body>
+<div id="delete-project" class="ui-state-error ui-corner-all" style="padding: 2px; width:310px;"> 
+	<p>
+		<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
+		<strong>Alert:</strong> Selected data will be permanently deleted.
+	</p>
+	<form id='delete-form'>
+		<select id='delete-choices' name='delete-choices'>
+			<option name='all' selected>Delete all data and images</option>
+			<option name='admin-desc'>Delete administrative/descriptive data only</option>
+			<option name='tech-images'>Delete technical data and images only</option>
+		</select>
+		<br/>
+		<br/>
+		<input class="ui-state-default" type="button" value="Delete"/>
+		<br/>
+		<br/>
+	</form>
+	<div style='display:none' id="delete-project-confirmation" title="Delete Project Confirmation">
+			<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Selected project data will be deleted!  Do you want to proceed?</p>
+		</div>
+</div>
+
+</body>
+</html>

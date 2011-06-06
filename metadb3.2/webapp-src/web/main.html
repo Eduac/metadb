@@ -1,0 +1,131 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Main Page</title>
+</head>
+
+<body>
+
+<div class="dashboard" style='text-align: center;'>
+
+<div class="column">
+
+<div class="portlet">
+<div class="portlet-header">User Status</div>
+<div id="user-info" class="portlet-content">
+<p class='greetings'></p>
+<p class='last-login'></p>
+<p class='last-page'>The last page your viewed was: <br/><a name='last-page' ></a></p>
+<p class='password-change-trigger'><a>Change passwords?</a></p>
+<form id='self-change-form' method='post' style='width: 200px; margin: 0 auto; display:none'>
+<table border="0" cellpadding="2">
+	<tr>
+		<td>
+		<div align="center">Old Password: <br />
+		<input id="old-password" type="password" name="old-password"
+			class="required text ui-widget-content" /></div>
+		</td>
+	</tr>
+	<tr align="center">
+	</tr>
+	<tr>
+
+		<td>
+		<div align="center">New Password:<br />
+		<input id="new-password" type="password" name="change-password"
+			class="required text ui-widget-content" minlength='6' /></div>
+		</td>
+	</tr>
+	<tr align="center">
+	</tr>
+	<tr>
+
+
+		<td>
+		<div align="center">Confirm Password:<br />
+		<input id="confirm-password" type="password"
+			name="change-confirm-password" class="text ui-widget-content"
+			equalTo="#new-password" /> <br />
+		</div>
+		</td>
+	</tr>
+	<tr align="center">
+	</tr>
+	<tr>
+
+		<td><label> <input type="button" class="update-pw-self-button"
+			name="confirm-password" value="Confirm"/> 
+			<input
+			name="reset-fields" type="reset" class="reset-pw-self-button"
+			value="Reset fields" />  </label></td>
+	</tr>
+</table>
+</form>
+<div id="log" align="center"></div>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="column">
+
+<div class="portlet restricted">
+<div class="portlet-header">Site Status</div>
+<div class="portlet-content">
+<p class='record-status'>Total records</p>
+<p class='parser-status'>Parser Status</p>
+</div>
+</div>
+
+</div>
+
+<div class="column">
+
+<div class="portlet restricted">
+<div class="portlet-header">Logs</div>
+<div class="portlet-content">
+<br/>
+<select class='log-types' name='log-type'>
+</select>
+<br/>
+<br/>
+<input type="button" class="ui-state-default show-log" value="Show Log" /> 
+<input type="button" class="ui-state-default flush-log" value="Clear Log" />
+			</div>
+<br/>
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!--
+		MetaDB: A Distributed Metadata Collection Tool
+		Copyright 2011, Lafayette College, Eric Luhrs, Haruki Yamaguchi, Long Ho.
+
+		This file is part of MetaDB.
+
+    MetaDB is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MetaDB is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MetaDB.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Project Information</title>
+
+
+
+</head>
+
+<body>
+
+
+
+<div align="center">
+<form id="project-info-data" method="post">
+<fieldset style="width: 90%;"><legend><b>Project Information</b></legend>
+
+
+
+<table id="required-fields" border="0">
+	<tr>
+		<th scope="col">
+		<div align="right">setting</div>
+		</th>
+		<th scope="col">value</th>
+		<th scope="col">&nbsp;</th>
+	</tr>
+	<tr>
+		<td>
+		<div align="right">Project Name</div>
+		</td>
+		<td>
+		<div align="left"><input type="text" name="projname"
+			class="ui-widget-content" id="projname" size="35" class="required" />
+
+		</div>
+		</td>
+		<td>
+		<div align="left">ex: warner</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div align="right">Project Notes</div>
+		</td>
+		<td>
+		<div align="left"><input type="text" name="projnotes"
+			class="ui-widget-content" id="projnotes" class="required" size="80"
+			class="required" /></div>
+		</td>
+		<td>
+		<div align="left">ex: collection from 2005 alumnus</div>
+		</td>
+	</tr>
+</table>
+
+<br />
+<br/>
+<br/>
+	
+</fieldset>
+</form>
+	<div style='display:none' id="delete-attr-confirmation" title="Delete Attribute Confirmation">
+			<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This metadata field, and all data stored in it, will be deleted from this project.  Do you want to proceed?</p>
+		</div>
+</div>
+
+
+</body>
+</html>
