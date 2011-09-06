@@ -11,6 +11,8 @@
   "engines": {
     "node": "~v0.4.11"
   },
-  "dependencies": {"express"},
+  "dependencies": {
+    "express": "~2.4.6"
+  },
   "devDependencies": {}
 }
