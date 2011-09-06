@@ -1,0 +1,16 @@
+{
+  "author": "Long Ho <holevietlong@gmail.com>",
+  "name": "metadb",
+  "description": "Distributed system for storing image metadata",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/longlho/metadb.git"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "~v0.4.11"
+  },
+  "dependencies": {"express"},
+  "devDependencies": {}
+}
