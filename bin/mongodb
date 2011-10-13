@@ -22,10 +22,24 @@
 
 USER=mongodb
 DBPATH=/var/lib/mongo
-LOGPATH=/var/log/mongo/mongo.log
+LOGPATH=/var/log/mongo
+
+if [ ! -d "$DBPATH" ]; then
+  mkdir $DBPATH
+fi
+
+if [ ! -d "$LOGPATH" ]; then
+  mkdir $LOGPATH
+fi
+
+chown mongodb $DBPATH
+chown mongodb $LOGPATH
+
+
+
 case "$1" in
   start)
-	su $USER -c "/opt/mongodb/mongodb-linux-x86_64-2.0.0/bin/mongod --rest --journal --logpath $LOGPATH --dbpath $DBPATH &"	
+	su $USER -c "/opt/mongodb/mongodb-linux-x86_64-2.0.0/bin/mongod --rest --journal --logpath $LOGPATH/mongo.log --dbpath $DBPATH &"	
 	[ $? = 0 ] && echo mongodb started 
 	;;
   restart)
