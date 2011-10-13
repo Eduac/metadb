@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# /etc/init.d/mongodb -- startup script for the MongoDB database
+#
+# Written by Miquel van Smoorenburg <miquels@cistron.nl>.
+# Modified for Debian GNU/Linux	by Ian Murdock <imurdock@gnu.ai.mit.edu>.
+# Modified for Tomcat by Stefan Gybas <sgybas@debian.org>.
+# Modified for Tomcat6 by Thierry Carrez <thierry.carrez@ubuntu.com>.
+# Additional improvements by Jason Brittain <jason.brittain@mulesoft.com>.
+#
+### BEGIN INIT INFO
+# Provides:          tomcat6
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs $remote_fs $network
+# Should-Start:      $
+# Should-Stop:       $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start MongoDB.
+# Description:       Start the MongoDB database.
+### END INIT INFO
+
+USER=mongodb
+DBPATH=/var/lib/mongo
+LOGPATH=/var/log/mongo/mongo.log
+case "$1" in
+  start)
+	su $USER -c "/opt/mongodb/mongodb-linux-x86_64-2.0.0/bin/mongod --rest --journal --logpath $LOGPATH --dbpath $DBPATH &"	
+	[ $? = 0 ] && echo mongodb started 
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+	;;
+esac
+
+exit 0
