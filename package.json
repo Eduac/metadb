@@ -12,7 +12,8 @@
     	"node": ">= v0.4.12"
   	},
   	"dependencies": {
-    	"express": ">= 2.5.0"
+    	"express" : ">= 2.5.0",
+    	"jqtpl" : ">= 1.0.7"
 	},
   	"devDependencies": {}
 }

@@ -23,22 +23,20 @@
 				</div>
 
 				<form method="post">
+					<input type='hidden' name="action" value="login"/>
 					<div class='username'>
 						<span>Username</span>
-						<input type='text' name='login[username]' />
+						<input type='text' name='username' />
 					</div>
 					<div class='password'>
 						<span>Password</span>
-						<input type='password' name='login[password]' />
+						<input type='password' name='password' />
 					</div>
 					<div class='remember'>
 						<span>Remember me</span>
 						<input type='checkbox' />
 					</div>
-					<button type='submit'>
-						Login
-					</button>
-					
+					<button type='submit'>Login</button>
 				</form>
 			</div>
 		</div>

@@ -23,7 +23,7 @@
 
 /* Login Div */
 div.login {
-	margin: auto;
+	margin: -100px auto auto auto;
 	width: 400px;
 }
 
