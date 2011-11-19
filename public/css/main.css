@@ -29,18 +29,26 @@ input[type='text'], input[type='password'] {
 
 /* Footer */
 footer {
-	margin: 10px auto auto auto;
+	display: block;
 	font-size: 11px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;	
+	border-top: 1px solid #999;
+	left: 0px;
+	padding: 10px 0px 10px 0px;
+	background-color: #DDD;
 }
 
 footer span.copyright {
 	float: left;
+	margin-left: 10px;
 }
 
 footer span.links {
 	list-style-type: none;
-	margin: 0px;
 	float: right;
+	margin-right: 10px;
 }
 
 footer span.links a {

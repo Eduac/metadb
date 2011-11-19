@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+body {
+	background-color: #EEE;
+}
+
 #main {
 	margin-top: 70px;
+	
 }

@@ -1,4 +1,4 @@
-Login = (function() {
+var Login = (function() {
 	
 	return {
 		init : function() {
@@ -25,4 +25,16 @@ Login = (function() {
 			});
 		}
 	};
+})();
+
+var NavBar = (function () {
+	var _$menu = $('nav span.menu');
+	return {
+		render : function () {
+			_$menu.find('a').click(function () {
+				$(this).toggleClass('selected');
+				$(this).siblings('a').removeClass('selected');
+			});	
+		}
+	}
 })();
