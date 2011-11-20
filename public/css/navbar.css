@@ -9,23 +9,24 @@ nav {
 	padding-top: 5px;
 	
 	min-width: 1024px;
-	background-image: linear-gradient(bottom, rgb(222,222,222) 0%, rgb(239,239,239) 95%);
-	background-image: -o-linear-gradient(bottom, rgb(222,222,222) 0%, rgb(239,239,239) 95%);
-	background-image: -moz-linear-gradient(bottom, rgb(222,222,222) 0%, rgb(239,239,239) 95%);
-	background-image: -webkit-linear-gradient(bottom, rgb(222,222,222) 0%, rgb(239,239,239) 95%);
-	background-image: -ms-linear-gradient(bottom, rgb(222,222,222) 0%, rgb(239,239,239) 95%);
+	background-image: linear-gradient(bottom, rgb(154,154,154) 0%, rgb(188,188,188) 95%);
+	background-image: -o-linear-gradient(bottom, rgb(154,154,154) 0%, rgb(188,188,188) 95%);
+	background-image: -moz-linear-gradient(bottom, rgb(154,154,154) 0%, rgb(188,188,188) 95%);
+	background-image: -webkit-linear-gradient(bottom, rgb(154,154,154) 0%, rgb(188,188,188) 95%);
+	background-image: -ms-linear-gradient(bottom, rgb(154,154,154) 0%, rgb(188,188,188) 95%);
 	
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
-		color-stop(0, rgb(222,222,222)),
-		color-stop(0.95, rgb(239,239,239))
+		color-stop(0, rgb(154,154,154)),
+		color-stop(0.95, rgb(188,188,188))
 	);
-	border-bottom: 1px solid #BBB;
+	border-bottom: 1px solid #777;
+	z-index: 1;
 }
 
-span.logo {
+nav span.logo {
 	margin-left: -20px;
 	width: 220px;
 	height: 50px;
@@ -38,7 +39,7 @@ span.logo {
 	background-position: 0 50%;
 }
 
-.title {
+nav .title {
 	font-family: Helvetica, sans-serif;
 	color: #7C0023;
 	font-size: 40px;
@@ -56,11 +57,12 @@ nav input.search {
 	padding: 0px 5px 0px 5px;
 	color: #CCC;
 	margin-left: 30px;
+	border: 1px solid #777;
 }
 
 nav input.search:focus {
 	box-shadow: 0px 0px 10px #DDD;
-	border: 1px solid #AAA;
+	border: 1px solid #444;
 	color: #222;
 }
 
@@ -81,7 +83,7 @@ nav select {
 	display: inline-block;
 }
 
-span.menu {
+nav span.menu {
 	position: relative;
 	top: -5px;
 	font-size: 20px;
@@ -89,19 +91,19 @@ span.menu {
 	margin-right: 5px;
 }
 
-span.menu a {
+nav span.menu a {
 	cursor: pointer;
 	padding: 12px 5px 5px 5px;
 	margin-left: 5px;
-	color: #777;
+	color: #555;
 	text-decoration: none;
 	height: 33px;
 	display: inline-block;
 	font-family: "Bitter", serif;
 }
 
-span.menu a.selected {
-	background-image: linear-gradient(bottom, rgb(154,154,154) 95%, rgb(171,171,171) 0%);
+nav span.menu a.selected {
+	/*background-image: linear-gradient(bottom, rgb(154,154,154) 95%, rgb(171,171,171) 0%);
 	background-image: -o-linear-gradient(bottom, rgb(154,154,154) 95%, rgb(171,171,171) 0%);
 	background-image: -moz-linear-gradient(bottom, rgb(154,154,154) 95%, rgb(171,171,171) 0%);
 	background-image: -webkit-linear-gradient(bottom, rgb(154,154,154) 95%, rgb(171,171,171) 0%);
@@ -113,8 +115,10 @@ span.menu a.selected {
 		left top,
 		color-stop(0.95, rgb(154,154,154)),
 		color-stop(0, rgb(171,171,171))
-	);
+	);*/
+	background-color: #EEE;
 	border-left: 1px solid #777;
 	border-right: 1px solid #777;
-	color: #EEE;
+	color: #111;
+	height: 34px;
 }

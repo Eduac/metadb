@@ -30,11 +30,78 @@ var Login = (function() {
 var NavBar = (function () {
 	var _$menu = $('nav span.menu');
 	return {
-		render : function () {
+		menu : _$menu,
+		render : function (callbackFn) {
 			_$menu.find('a').click(function () {
 				$(this).toggleClass('selected');
 				$(this).siblings('a').removeClass('selected');
 			});	
+			_$menu.find('a.home').click();
+			if ($.isFunction(callbackFn)) callbackFn();
+		}
+	}
+})();
+
+var Home = (function () {
+	var _$leftSection = $('#main section.left'),
+		_$rightSection = $('#main section.right'),
+		_renderControl = function ($ctrl) {
+			$ctrl.find('span.backward > .first')
+				.button({
+					text : false,
+					icons : {
+						primary : "ui-icon-seek-first"
+					}
+				})
+				.next()
+				.button({
+					text : false,
+					icons : {
+						primary : "ui-icon-seek-prev"
+					}
+				}).parent().buttonset();
+				
+			$ctrl.find('span.forward > .next')
+				.button({
+					text : false,
+					icons : {
+						primary : "ui-icon-seek-next"
+					}
+				})
+				.next()
+				.button({
+					text : false,
+					icons : {
+						primary : "ui-icon-seek-end"
+					}
+				}).parent().buttonset();
+				
+			$ctrl.find('span.misc > .print').button({
+				text: false,
+				icons : {
+					primary : 'ui-icon-print'
+				}
+			});
+				
+			$ctrl.find('button').css({
+				width : '25px',
+				height : '25px'
+			});
+		},
+		_renderLeftSection = function ($selector) {
+			_renderControl($selector.find('div.control'));
+		},
+		_renderRightSection = function ($selector) {
+			var _$ctrl = $selector.find('div.submenu');
+			_$ctrl.buttonset();
+			_$ctrl.find('label[role=button]').css('height', '25px');
+			_$ctrl.find('input:first').click();
+		} 
+	
+	return {
+		render : function () {
+			_renderLeftSection(_$leftSection);
+			_renderRightSection(_$rightSection);
 		}
 	}
 })();
