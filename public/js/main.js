@@ -92,10 +92,18 @@ var Home = (function () {
 			_renderControl($selector.find('div.control'));
 		},
 		_renderRightSection = function ($selector) {
-			var _$ctrl = $selector.find('div.submenu');
-			_$ctrl.buttonset();
-			_$ctrl.find('label[role=button]').css('height', '25px');
-			_$ctrl.find('input:first').click();
+			var _$submenu = $selector.find('div.submenu'),
+				_$ctrl = $selector.find('div.control');
+				
+				
+			_$submenu.find('span').click(function () {
+				$(this).toggleClass('selected');
+				$(this).siblings().removeClass('selected');
+			});
+			_$submenu.find('span:first').click();
+			
+			_$ctrl.find('button').button();
+			
 		} 
 	
 	return {

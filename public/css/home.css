@@ -1,11 +1,12 @@
 @charset "utf-8";
 
 body {
-	background-color: #EEE;
+	background-color: #FFF;
 }
 
 #main {
 	height: 100%;
+	min-height: 550px;
 	width: 100%;
 	overflow: hidden;
 	position: absolute;
@@ -26,11 +27,14 @@ body {
 }
 
 #main section > div.submenu {
-	margin: auto;
 	width: 95%;
 	padding: 5px 0 3px 0;
 	text-align: center;
 	border-bottom: 1px solid #CCC;
+}
+
+#main section.left > div.submenu {
+	margin: auto;
 }
 
 #main section.left div.control span {
@@ -50,6 +54,11 @@ body {
 
 #main section.left div.title {
 	padding-right: 5px;
+}
+
+#main section.left div.sizes {
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
 #main section.left div.sizes span.size {
@@ -109,8 +118,96 @@ body {
 	width: auto;
 }
 
-#main section.right div.submenu {
-	width: 110%;
-	margin-left: 10px;
-	padding-bottom: 4px;
+#main section.right > * {
+	margin-left: 20px;
+	display: block;
+}
+
+#main section.right div {
+	width: 100%;
+}
+
+#main section.right div.features {
+	padding-top: 7px;
+	padding-bottom: 6px;
+	font-family: 'Bitter', serif;
+	font-size: 20px;
+}
+
+#main section.right div.features span {
+	margin-right: 15px;
+	cursor: pointer;	
+}
+
+#main section.right div.features span.selected {
+	text-decoration: underline;
+}
+
+#main section.right div.control {
+	text-align: left;
+}
+
+#main section.right div.control button {
+	margin-right: 15px;
+}
+
+#main section.right table {
+	margin-top: 30px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#main section.right table tbody tr {
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+}
+
+#main section.right table tbody tr:last-child {
+	border-bottom: 1px solid #CCC;
+}
+
+#main section.right table tbody tr td {
+	min-width: 46px;
+	padding: 5px 0 5px 0;
+}
+
+#main section.right table tbody tr td:first-child {
+	text-align: center;
+	border-right: 1px solid #CCC;
+	padding: 5px;
+}
+
+#main section.right table tbody tr td:not(:first-child) {
+	padding-left: 10px;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value {
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value > * {
+	min-width: 450px;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value input {
+	min-height: 20px;
+	border: 1px solid #777;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value textarea {
+	min-height: 70px;
+	border: 1px solid #777;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value div.controlled > span {
+	display: inline-block;
+	padding: 2px 5px 5px 5px;
+}
+
+#main section.right table tbody tr td:not(:first-child) div.value div.controlled span span.ui-icon {
+	display: inline-block;
+	position: relative;
+	top: 4px;
 }

@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+		
 		<title>MetaDB</title>
-
+		<link rel="shortcut icon" href="images/favicon.ico">
 		<link href="css/jquery-ui-1.8.13.custom.css" type="text/css" rel="stylesheet"/>
 		<link href="css/main.css" type="text/css" rel="stylesheet"/>
 		<link href="css/navbar.css" type="text/css" rel="stylesheet"/>
@@ -72,11 +72,62 @@
 				</div>
 			</section>
 			<section class='right'>
-				<div class='submenu'>
-					<input type='radio' name='feature' id='mdb-f-descriptive'/><label for='mdb-f-descriptive'>Descriptive</label>
-					<input type='radio' name='feature' id='mdb-f-administrative'/><label for='mdb-f-administrative'>Administrative</label>
-					<input type='radio' name='feature' id='mdb-f-technical'/><label for='mdb-f-technical'>Technical</label>
+				<div class='submenu features'>
+					<span>Descriptive</span>
+					<span>Administrative</span>
+					<span>Technical</span>
 				</div>
+				<div class='control submenu'>
+					<button>
+						<input type="checkbox"/>
+					</button>
+					<button>Update</button>
+				</div>
+				<table>
+					<tbody>
+						<tr>
+							<td class='select'><input type="checkbox" /></td>
+							<td class='entry'>
+								<div class='attribute'>title</div>
+								<div class='value'><input type="text" /></div>
+							</td>
+						</tr>
+						<tr>
+							<td class='select'><input type="checkbox" /></td>
+							<td class='entry'>
+								<div class='attribute'>description.annotation</div>
+								<div class='value'>
+									<textarea></textarea>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class='select'><input type="checkbox" /></td>
+							<td class='entry'>
+								<div class='attribute'>subject.topical</div>
+								<div class='value'>
+									<div class='controlled'>
+										<span class='ui-state-highlight'>
+											Dixie Cup Company
+											<span class='ui-icon ui-icon-closethick'></span>
+										</span>
+										<span class='ui-state-highlight'>
+											Employees
+											<span class='ui-icon ui-icon-closethick'></span>
+										</span>
+										<span class='ui-state-highlight'>
+											Factories
+											<span class='ui-icon ui-icon-closethick'></span>
+										</span>
+										<span class='ui-state-highlight'>
+											<span class='ui-icon ui-icon-plusthick'></span>
+										</span>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</section>
 		</div>
 		<footer>
