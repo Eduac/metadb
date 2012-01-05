@@ -1,14 +1,13 @@
-var express = require('express'),
-	app = express.createServer(),
-	fs = require('fs'),
-	MemoryStore = express.session.MemoryStore,
-	jqtpl = require('jqtpl'),
-	PORT = 8081;
+var express = require('express')
+,   app = express.createServer()
+,   MemoryStore = express.session.MemoryStore
+,   jqtpl = require('jqtpl')
+,   PORT = 8080;
 
 // Controllers
 app.controllers = {
 	LoginController : new (require('./controllers/LoginController'))(),
-	HomeController : new (require('./controllers/HomeController'))
+	HomeController : new (require('./controllers/HomeController'))()
 };
 
 // Configurations
