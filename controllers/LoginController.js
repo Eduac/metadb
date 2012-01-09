@@ -1,34 +1,37 @@
-var Session = require('../model/Session');
-var LoginController = function () {
-	return {
-		handle : function(req, res) {
-			console.log('LoginController handling ' + req.method);
-			var context = req.session.context,
-				action = req.param('action');
-			if (!action) { 
-				if (!context || !context.user || !context.token) {
-					res.render('login');
-				} else if (context && context.user && context.token) {
-					res.redirect('/home');
-				}
-			}
-			else if (action == 'logout') {
-				if (context) {
-					delete req.session.context;	
-				}
-				res.redirect('/login');
-			}
-			else if (action == 'login') {
-				if (req.param('username') == 'metadb' && req.param('password') == '123123') {
-					req.session.context = new Session(req.param('username'), Math.floor(Math.random() * 10000));
-					res.redirect('/home');
-				} else {
-					res.render('login');
-				}
-			} 
-		}
-	}
-};
-
-
+var Session = require('../models/drivers/core/Session')
+,   AuthenticationHandler = require('../models/drivers/core/AuthenticationHandler')
+,   LoginController = function() {
+        return {
+            handle: function(req, res) {
+                console.log('LoginController handling ' + req.method);
+                var context = req.session.context,
+                    action = req.param('action');
+                if (!action) {
+                    !context || !context.coreSession
+                    ? res.render('login') 
+                    : res.redirect('/home');
+                }
+                else if (action === 'logout') {
+                    if (context) delete req.session.context;
+                    res.redirect('/login');
+                }
+                else if (action === 'login') {
+                    var session = new Session('localhost', 5000, 'metadb-ui')
+                    ,   authHandler = new AuthenticationHandler(session);
+                    session.verbose = true;
+                    authHandler.authenticate(
+                        req.param('username'), 
+                        req.param('password'), 
+                        function (coreSession) {
+                            if (!coreSession) return res.render('login');
+                            authHandler.session.importCore(coreSession);
+                            req.session.context = authHandler.session;
+                            res.redirect('/home');
+                        }, function () {
+                            res.render('login');
+                        });
+                }
+            }
+        }
+    };
 module.exports = LoginController;

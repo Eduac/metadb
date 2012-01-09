@@ -4,8 +4,7 @@ function intercept (req, res, next) {
 		context = req.session.context;
 		
 	console.log('Intercepted ' + pathname);
-	console.log('Context ' + JSON.stringify(context));
-	if (pathname != '/login' && (!context || !context.token || !context.user))
+	if (pathname != '/login' && (!context || !context.coreSession))
 		res.redirect('/login');
 	else
 		next();

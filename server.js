@@ -1,9 +1,8 @@
-var express = require('express'),
-	app = express.createServer(),
-	fs = require('fs'),
-	MemoryStore = express.session.MemoryStore,
-	jqtpl = require('jqtpl'),
-	PORT = 8081;
+var express = require('express')
+,   app = express.createServer()
+,   MemoryStore = express.session.MemoryStore
+,   jqtpl = require('jqtpl')
+,   PORT = 8081;
 
 // Controllers
 app.controllers = {
@@ -22,7 +21,7 @@ app.set('view options', { layout: false });
 app.use(express.logger());
 
 //Handle different environments
-require('./config/environments')(app, express, jqtpl);
+require('./config/environments')(app, express);
 
 //Handles routing
 require('./config/routes')(app);
