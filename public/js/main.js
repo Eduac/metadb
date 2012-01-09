@@ -16,27 +16,34 @@ var Base = (function() {
                 autoOpen: false,
                 modal: true
             });
-            $('footer span.links > a').each(function() {
-                $(this).click(function (ev) {
-                    if ($(this).hasClass('internal')) {
-                        $notificationDiv.dialog('option', 'title', $(this).html());
-                        $notificationDiv.dialog('option', 'width', 650);
-                        $notificationDiv.load($(this).attr('href'), function() {
-                            $notificationDiv.dialog('open');
-                        });
-                        ev.preventDefault();
-                    }
+            $('footer').load('snippets/footer.html footer', function () {
+                $('footer span.links > a').each(function() {
+                    $(this).click(function (ev) {
+                        if ($(this).hasClass('internal')) {
+                            $notificationDiv.dialog('option', 'title', $(this).html());
+                            $notificationDiv.dialog('option', 'width', 650);
+                            $notificationDiv.load($(this).attr('href'), function() {
+                                $notificationDiv.dialog('open');
+                            });
+                            ev.preventDefault();
+                        }
+                    });
                 });
             });
-            NavBar.render();
+            NavBar.init();
         }
     };
 })();
 
 var NavBar = (function () {
-	var _$menu = $('nav span.menu');
+	var _$menu;
 	return {
-		menu : _$menu,
+		init : function () {
+            $('nav').load('snippets/nav.html nav', function () {
+                _$menu = $('nav span.menu');
+                NavBar.render();
+            });
+        },
 		render : function (callbackFn) {
 			_$menu.find('a').click(function () {
 				$(this).toggleClass('selected');
@@ -45,7 +52,7 @@ var NavBar = (function () {
 			_$menu.find('a.home').click();
 			if ($.isFunction(callbackFn)) callbackFn();
 		}
-	}
+	};
 })();
 
 var Home = (function () {
@@ -110,12 +117,12 @@ var Home = (function () {
 			
 			_$ctrl.find('button').button();
 			
-		} 
+		}; 
 	
 	return {
 		render : function () {
 			_renderLeftSection(_$leftSection);
 			_renderRightSection(_$rightSection);
 		}
-	}
+	};
 })();
