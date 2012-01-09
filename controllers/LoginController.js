@@ -18,7 +18,6 @@ var Session = require('../models/drivers/core/Session')
                 else if (action === 'login') {
                     var session = new Session('localhost', 5000, 'metadb-ui')
                     ,   authHandler = new AuthenticationHandler(session);
-                    session.verbose = true;
                     authHandler.authenticate(
                         req.param('username'), 
                         req.param('password'), 
@@ -28,7 +27,7 @@ var Session = require('../models/drivers/core/Session')
                             req.session.context = authHandler.session;
                             res.redirect('/home');
                         }, function () {
-                            res.render('login');
+                            res.redirect('/login');
                         });
                 }
             }

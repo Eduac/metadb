@@ -133,17 +133,22 @@
 		<footer>
 			<span class='copyright'>Copyright © 2011</span>
 			<span class='links'>
-				<a href='disclaimers.html' class='internal'>Disclaimers</a> |
+				<a href='snippets/disclaimers.html' class='internal'>Disclaimers</a> |
 				<a href='http://www.lafayette.edu' target='_blank'>Lafayette College</a>
 			</span>
 		</footer>
+        <div class='modal notification' ></div>
+        <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    	<script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+        <!--
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        -->
 
 		<script type='text/javascript' src='js/main.js'></script>
 		<script type='text/javascript'>
-			$( function() {
-				NavBar.render();
+			$(function () {
+                Base.init();
 				Home.render();
 			});
 		</script>
