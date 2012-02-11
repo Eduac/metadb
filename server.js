@@ -2,7 +2,7 @@ var express = require('express')
 ,   app = express.createServer()
 ,   MemoryStore = express.session.MemoryStore
 ,   jqtpl = require('jqtpl')
-,   PORT = 8080;
+,   PORT = 8081;
 
 // Controllers
 app.controllers = {
@@ -24,7 +24,7 @@ app.use(express.logger());
 require('./config/environments')(app, express);
 
 //Handles routing
-require('./config/routes')(app);
+//require('./config/routes')(app);
 
 console.log("Server running at port " +  PORT);
 app.listen(PORT);

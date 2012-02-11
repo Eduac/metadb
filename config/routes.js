@@ -4,16 +4,15 @@ function intercept (req, res, next) {
 		context = req.session.context;
 		
 	console.log('Intercepted ' + pathname);
-	if (pathname != '/login' && (!context || !context.coreSession))
-		res.redirect('/login');
+	if (pathname != '/' && (!context || !context.coreSession))
+		res.redirect('/');
 	else
 		next();
 }
 
 module.exports = function(app) {
 	var _routes = {
-		'/' : app.controllers.HomeController,
-		'/login' : app.controllers.LoginController,
+		'/' : app.controllers.LoginController,
 		'/home' : app.controllers.HomeController
 	};
 
