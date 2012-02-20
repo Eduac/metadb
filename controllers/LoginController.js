@@ -8,12 +8,12 @@ var Session = require('../models/drivers/core/Session')
                     action = req.param('action');
                 if (!action) {
                     !context || !context.coreSession
-                    ? res.render('index') 
+                    ? res.render('login') 
                     : res.redirect('/home');
                 }
                 else if (action === 'logout') {
                     if (context) delete req.session.context;
-                    res.redirect('/');
+                    res.redirect('/login');
                 }
                 else if (action === 'login') {
                     var session = new Session('localhost', 5000, 'metadb-ui')
@@ -27,7 +27,7 @@ var Session = require('../models/drivers/core/Session')
                             req.session.context = authHandler.session;
                             res.redirect('/home');
                         }, function () {
-                            res.redirect('/');
+                            res.redirect('/login');
                         });
                 }
             }

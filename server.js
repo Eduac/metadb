@@ -24,7 +24,7 @@ app.use(express.logger());
 require('./config/environments')(app, express);
 
 //Handles routing
-//require('./config/routes')(app);
+require('./config/routes')(app);
 
 console.log("Server running at port " +  PORT);
 app.listen(PORT);

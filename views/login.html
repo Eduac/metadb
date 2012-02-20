@@ -16,9 +16,10 @@
             <nav class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="#">MetaDB</a>
-                    <form class="form-inline pull-right" id='loginForm'>
-                        <input type="text" class="input-small" placeholder="Username">
-                        <input type="text" class="input-small" placeholder="Password">
+                    <form class="form-inline pull-right" id='loginForm' method='POST' action='/login'>
+			<input type='hidden' name='action' value='login'/>
+                        <input type="text" class="input-small" name='username' placeholder="Username">
+                        <input type='password' class="input-small" name='password' placeholder="Password">
                         <button class='btn'>Login</button>
                     </form>
                 </div>

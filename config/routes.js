@@ -1,11 +1,11 @@
 var urlParser = require('url');
 function intercept (req, res, next) { 
-	var pathname = urlParser.parse(req.url).pathname,
-		context = req.session.context;
+	var pathname = urlParser.parse(req.url).pathname
+	,	context = req.session.context;
 		
 	console.log('Intercepted ' + pathname);
-	if (pathname != '/' && (!context || !context.coreSession))
-		res.redirect('/');
+	if (pathname != '/login' && (!context || !context.coreSession))
+		res.redirect('/login');
 	else
 		next();
 }
@@ -13,6 +13,7 @@ function intercept (req, res, next) {
 module.exports = function(app) {
 	var _routes = {
 		'/' : app.controllers.LoginController,
+		'/login' : app.controllers.LoginController,
 		'/home' : app.controllers.HomeController
 	};
 
