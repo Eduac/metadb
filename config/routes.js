@@ -14,6 +14,7 @@ module.exports = function(app) {
 	var _routes = {
 		'/' : app.controllers.LoginController,
 		'/login' : app.controllers.LoginController,
+		'/users' : app.controllers.UsersController,
 		'/home' : app.controllers.HomeController
 	};
 

@@ -7,6 +7,7 @@ var express = require('express')
 // Controllers
 app.controllers = {
 	LoginController : new (require('./controllers/LoginController'))(),
+	UsersController : new (require('./controllers/UsersController'))(),
 	HomeController : new (require('./controllers/HomeController'))()
 };
 
