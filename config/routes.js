@@ -15,7 +15,8 @@ module.exports = function(app) {
 		'/' : app.controllers.LoginController,
 		'/login' : app.controllers.LoginController,
 		'/users' : app.controllers.UsersController,
-		'/home' : app.controllers.HomeController
+		'/home' : app.controllers.HomeController,
+    '/api' : app.controllers.CoreProxyController
 	};
 
 	for (var r in _routes) {

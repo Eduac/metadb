@@ -4,7 +4,7 @@ var API = (function () {
     query : function (method, params, options) {
       $.getJSON('api', {
         method : method,
-        params : params
+        params : params || []
       }, function (data) {
         if (!data || data.error) {
           if (_.isFunction(options.error)) {

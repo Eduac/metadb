@@ -8,7 +8,8 @@ var express = require('express')
 app.controllers = {
 	LoginController : new (require('./controllers/LoginController'))(),
 	UsersController : new (require('./controllers/UsersController'))(),
-	HomeController : new (require('./controllers/HomeController'))()
+	HomeController : new (require('./controllers/HomeController'))(),
+  CoreProxyController : new (require('./controllers/CoreProxyController'))()
 };
 
 // Configurations
