@@ -4,6 +4,5 @@ For example, at Lafayette, a librarian creates new projects, defines metadata re
 
 MetaDB supports several features that strengthen digital collection building efforts, including the use of controlled vocabularies, the ability to search, browse, sort, and edit records in different ways, and support for concurrent access by multiple users. The application extracts technical metadata from images, and automatically creates JPG access derivatives that can include branded or banded text, as well as zoomable high-resolution images for close study.
 
-MetaDB version 3 was developed by [Eric Luhrs](http://digital.lafayette.edu/contact), Digital Initiatives Librarian at [Lafayette College](http://www.lafayette.edu), and [Computer Science](http://compsci.lafayette.edu) students [Long Ho](http://www.azndezign.com) and [Haruki Yamaguchi](http://cs.lafayette.edu/~yamagucm).
-
+MetaDB version 4 is currently being developed by [Long Ho](http://www.azndezign.com) and [Haruki Yamaguchi](http://cs.lafayette.edu/~yamagucm), Lafayette College alumni.
 
