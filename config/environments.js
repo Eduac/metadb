@@ -1,12 +1,16 @@
-module.exports = function(app, express) {
-    app.configure('development', function() {
-        app.use(express.errorHandler({
+module.exports = function(app) {
+    var env = process.env.NODE_ENV || 'development';
+    var errorHandler = require('errorhandler');
+    if ('development' == env) {
+        app.use(errorHandler({
             dumpExceptions: true,
             showStack: true
         }));
-    });
-    app.configure('production', function() {
-        app.use(express.errorHandler());
-    });
+    }
+
+    else if ('production' == env) {
+        app.use(errorHandler());
+    }
+
     console.log('Done configuring server!');
 };

@@ -1,8 +1,15 @@
 var express = require('express')
-,   app = express.createServer()
-,   MemoryStore = express.session.MemoryStore
-,   jqtpl = require('jqtpl')
-,   PORT = 8081;
+    ,session = require('express-session')
+    ,body_parser = require('body-parser')
+    ,cookie_parser = require('cookie-parser')
+    ,logger = require('morgan')
+    ,jqtpl = require('jqtpl')
+    ,PORT = 8081
+    ,http = require('http');
+
+var app = express();
+var MemoryStore = session.MemoryStore;
+var server = http.createServer(app);
 
 // Controllers
 app.controllers = {
@@ -13,14 +20,15 @@ app.controllers = {
 };
 
 // Configurations
-app.use(express.static(__dirname + '/public', {maxAge : 86400000}));        
-app.use(express.bodyParser());        
-app.use(express.cookieParser());        
-app.use(express.session({ secret: 'MDB-L0ngH0-H4rUk!', store: new MemoryStore({ reapInterval: 60000 * 10 }) }));
-app.set("view engine", "html");        
-app.register(".html", jqtpl.express);        
-app.set('view options', { layout: false });        
-app.use(express.logger());
+app.use(express.static(__dirname + '/public', {maxAge : 86400000}));
+app.use(body_parser());
+app.use(cookie_parser());
+app.use(session({ secret: 'MDB-L0ngH0-H4rUk!', store: new MemoryStore({ reapInterval: 60000 * 10 }) }));
+app.use(logger());
+
+app.set("view engine", "html");
+app.set('view options', { layout: false });
+app.engine(".html", require('jqtpl/lib/express').render);
 
 //Handle different environments
 require('./config/environments')(app, express);
